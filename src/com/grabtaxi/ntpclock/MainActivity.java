@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 	/** Called when the activity is first created. */
 	private static final String TAG = MainActivity.class.getSimpleName();
 	private static final String NTP_SERVER = "0.us.pool.ntp.org";
-	private long INTERVAL_TIME_UPDATE = 10 * 60 * 1000L;
+	public static long INTERVAL_TIME_UPDATE = 10 * 60 * 1000L;
 	private Button mButtonSync;
 	private TextView mTextViewTime;
 	private TextView mTextViewDate;

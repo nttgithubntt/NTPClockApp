@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RemoteViews.RemoteView;
 
+import com.grabtaxi.ntpclock.MainActivity;
 import com.grabtaxi.ntpclock.R;
 
 /**
@@ -229,13 +230,12 @@ public class AnalogClock extends View {
 					+ (h / 2));
 		}
 		mSecondHand.draw(canvas);
-		canvas.restore();
 		if (scaled) {
 			canvas.restore();
 		}
 	}
 
-	MyCount counter = new MyCount(10000, 1000);
+	MyCount counter = new MyCount(MainActivity.INTERVAL_TIME_UPDATE, 1000);
 
 	public class MyCount extends CountDownTimer {
 		public MyCount(long millisInFuture, long countDownInterval) {
