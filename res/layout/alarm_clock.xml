@@ -25,9 +25,32 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/txt_time_margin_top"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textSize="@dimen/txt_title_size" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/txt_time_margin_top"
+            android:text="@string/date_reset"
+            android:textSize="@dimen/txt_time_size" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/clock_countdown"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/txt_time_margin_top"
         android:orientation="vertical" >
 
         <TextView
@@ -58,8 +81,7 @@
             android:layout_width="@dimen/btn_sync_width"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/btn_sync"
-             />
+            android:text="@string/btn_sync" />
     </LinearLayout>
 
 </LinearLayout>
