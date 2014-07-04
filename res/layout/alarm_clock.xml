@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/parent_padding" >
+
+    <LinearLayout
+        android:id="@+id/clock_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ntp_server_time"
+            android:textSize="@dimen/txt_title_size" />
+
+        <com.grabtaxi.ntpclock.analog.clock.AnalogClock
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/clock"
+            style="@style/clock" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clock_countdown"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countdown_time"
+            android:textSize="@dimen/txt_title_size" />
+
+        <TextView
+            android:id="@+id/txt_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/txt_time_margin_top"
+            android:text="@string/time_reset"
+            android:textSize="@dimen/txt_time_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_sync_margin_top"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/btn_sync"
+            android:layout_width="@dimen/btn_sync_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/btn_sync"
+             />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+
+    <dimen name="parent_padding">8dp</dimen>
+    <dimen name="txt_time_margin_top">8dp</dimen>
+    <dimen name="txt_time_size">26sp</dimen>
+    <dimen name="txt_title_size">18sp</dimen>
+    <dimen name="btn_sync_margin_top">35dp</dimen>
+    <dimen name="btn_sync_width">140dp</dimen>
+
+</resources>
