@@ -7,8 +7,10 @@
     <string name="no_connection">Can\'t connect to NTP server, there is no internet connection.</string>
     <string name="request_time_failed">request time failed</string>
     <string name="time_reset">00:00:00</string>
+    <string name="date_reset">Sun, 11 May 2014</string>
     <string name="ntp_server_time">NTP server time:</string>
     <string name="countdown_time">Countdown time:</string>
+      <string name="date">Date:</string>
     <string name="btn_sync">Resync NTP</string>
 
 </resources>
