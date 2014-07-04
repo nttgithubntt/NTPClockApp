@@ -1,5 +1,7 @@
 package com.grabtaxi.ntpclock;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
@@ -13,6 +15,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +34,7 @@ public class MainActivity extends Activity {
 	private long INTERVAL_TIME_UPDATE = 10 * 60 * 1000L;
 	private Button mButtonSync;
 	private TextView mTextViewTime;
+	private TextView mTextViewDate;
 	private AnalogClock mAnalogClock;
 	private NTPServerTask mServerTask;
 	private CounterClass mCounterClass;
@@ -42,6 +46,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.alarm_clock);
 		mButtonSync = (Button) findViewById(R.id.btn_sync);
 		mTextViewTime = (TextView) findViewById(R.id.txt_time);
+		mTextViewDate = (TextView) findViewById(R.id.txt_date);
 		mAnalogClock = (AnalogClock) findViewById(R.id.clock);
 		mButtonSync.setOnClickListener(new OnClickListener() {
 
@@ -63,6 +68,7 @@ public class MainActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		NTTLog.lf(this, 3, TAG + "==> onResume");
+		updateDate(0L);
 		excuteNTPServerTask();
 	}
 
@@ -211,6 +217,28 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	private void updateDate(long milliSeconds) {
+		if(milliSeconds <=0L){
+			milliSeconds = System.currentTimeMillis();
+		}
+		String dateFormat = "dd MMM yyyy";
+		SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(milliSeconds);
+		mTextViewDate.setText(formatter.format(calendar.getTime()));
+	}
+
+	public static String getDate(long milliSeconds, String dateFormat) {
+		// Create a DateFormatter object for displaying date in specified
+		// format.
+		SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+		// Create a calendar object that will convert the date and time value in
+		// milliseconds to date.
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(milliSeconds);
+		return formatter.format(calendar.getTime());
+	}
+
 	public void updateLayout(Long result) {
 		if (mAnalogClock != null) {
 			mAnalogClock.onTimeChanged(result);
@@ -222,6 +250,7 @@ public class MainActivity extends Activity {
 			mCounterClass.cancel();
 			mCounterClass.start();
 		}
+		updateDate(result);
 		// String dateFromNtpServer = "";
 		// Calendar calendar = Calendar.getInstance();
 		// try {
